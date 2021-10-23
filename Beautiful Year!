@@ -1,0 +1,45 @@
+// What? You don't know what a beautiful year is! Let me tell you!
+// A beautiful year is the year in which all digits of that year are different from each other, examples are 2013 or 1987!
+
+// This program takes an integer t as an input, which is the total number of test cases.
+// Refer to this https://help.hackerearth.com/hc/en-us/articles/360002470854-Test-cases if you don't know about test cases!
+// The next input is a year and the program will output the just next beautiful year.
+// Give it a try!
+
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+int
+main ()
+{
+  int t;
+  cin >> t;
+  while (t--)
+    {
+      int y;
+      cin >> y;
+
+      for (int a = y + 1; a <= 9012; a++)
+	{
+	  int xx[4];
+	  xx[0] = floor (a / 1000);
+	  xx[1] = floor ((a - xx[0] * 1000) / 100);
+	  xx[2] = floor ((a - xx[0] * 1000 - xx[1] * 100) / 10);
+	  xx[3] = floor (a - xx[0] * 1000 - xx[1] * 100 - xx[2] * 10);
+
+	  if (xx[0] != xx[1] && xx[0] != xx[2] && xx[0] != xx[3]
+	      && xx[1] != xx[2] && xx[1] != xx[3]
+	      && xx[2] != xx[3]) 
+	      
+	    {
+	      cout << xx[0] << xx[1] << xx[2] << xx[3] << endl;
+	      break;
+	    }
+
+	}
+
+    }
+  return 0;
+}
